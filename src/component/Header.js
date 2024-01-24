@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
 
 // type TProps = {
 //   title: string,
@@ -6,9 +7,17 @@ import styled from "@emotion/styled";
 // };
 
 export const Header = ({ title, isBackgroundColorWhite }) => {
+  const navigate = useNavigate();
+
   return (
     <Wrap isBackgroundColorWhite={isBackgroundColorWhite}>
-      <img src={`/images/arrow_l_${isBackgroundColorWhite ? "b" : "w"}.svg`} alt="네이게이션 화살표" />
+      <img
+        src={`/images/arrow_l_${isBackgroundColorWhite ? "b" : "w"}.svg`}
+        alt="네이게이션 화살표"
+        onClick={() => {
+          navigate(-1);
+        }}
+      />
       <h2>{title}</h2>
       <span></span>
     </Wrap>
