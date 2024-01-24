@@ -132,8 +132,7 @@ export const Signup = () => {
                         })
                       }
                     />
-                    asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
-                    {/* {fileInfo ? fileInfo.name : "파일 첨부하기 +"} */}
+                    {fileInfo ? fileInfo.name : "파일 첨부하기 +"}
                   </Label>
                   <FileCheckText isAttach={fileInfo}>{fileInfo ? "첨부" : "미첨부"}</FileCheckText>
                 </FlexBox>
