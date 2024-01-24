@@ -7,12 +7,15 @@ const color = {
     1: "#5d5d5d",
     2: "#767676",
     3: "#585858",
+    4: "#f6f6f6",
+    5: "#bbb",
+    6: "#F4F4F4",
   },
 };
 
 const breakpoint = {
   DESKTOP: "1200px",
-  TABLET: "768px",
+  TABLET: "800px",
   MOBILE: "360px",
 };
 

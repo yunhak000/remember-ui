@@ -2,8 +2,10 @@ import styled from "@emotion/styled";
 import { LButton } from "../../component/LButton";
 import { theme } from "../../styles/theme";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Intro = () => {
+  const navigate = useNavigate();
   const [innerHeight, setInnerHeight] = useState(0);
 
   useEffect(() => {
@@ -13,7 +15,7 @@ export const Intro = () => {
   return (
     <Wrap innerHeight={innerHeight}>
       <IntroHeader>기억하뇌</IntroHeader>
-      <Contents>
+      <Contents className="container">
         <img src="images/main.png" alt="메인 이미지" />
         <div className="content-wrap">
           <h2>매일 15분 훈련으로 치매 예방</h2>
@@ -23,26 +25,22 @@ export const Intro = () => {
           </div>
         </div>
       </Contents>
-      <ButtonLinkWrap>
+      <ButtonLinkWrap className="container">
         <ButtonWrap>
-          <LButton
-            text="기관 로그인하기"
-            onClick={() => {
-              console.log("기관 로그인");
-            }}
-          />
-          <LButton
-            text="개인 로그인하기"
-            backgroundColor={theme.color.secondary}
-            onClick={() => {
-              console.log("개인 로그인");
-            }}
-          />
+          <LButton text="기관 로그인하기" onClick={() => {}} />
+          <LButton text="개인 로그인하기" backgroundColor={theme.color.secondary} onClick={() => {}} />
         </ButtonWrap>
         <OutLink>
           <span>현재 아이디가 없다면?</span>
           <span className="bar" />
-          <span className="signup">기억하뇌 회원가입</span>
+          <span
+            className="signup"
+            onClick={() => {
+              navigate("/signup");
+            }}
+          >
+            기억하뇌 회원가입
+          </span>
         </OutLink>
       </ButtonLinkWrap>
     </Wrap>
@@ -55,6 +53,10 @@ const Wrap = styled.div`
   align-items: center;
   height: ${({ innerHeight }) => `${innerHeight}px`};
   justify-content: space-between;
+
+  ${({ theme }) => theme.breakpoints.down("TABLET")} {
+    padding: 0 16px;
+  }
 `;
 
 const IntroHeader = styled.div`
@@ -73,6 +75,7 @@ const IntroHeader = styled.div`
 `;
 
 const Contents = styled.div`
+  text-align: center;
   margin-bottom: 40px;
 
   > img {
@@ -124,7 +127,6 @@ const Contents = styled.div`
 `;
 
 const ButtonLinkWrap = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

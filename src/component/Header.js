@@ -24,6 +24,7 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.06);
 
   h2 {
     font-size: 32px;
@@ -32,5 +33,17 @@ const Wrap = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  ${({ theme }) => theme.breakpoints.down("TABLET")} {
+    padding: 0 16px;
+
+    > img {
+      width: 12px;
+    }
+
+    h2 {
+      font-size: 25px;
+    }
   }
 `;

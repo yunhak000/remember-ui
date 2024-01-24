@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 // type TProps = {
 //   text: string;
-//   size: "s";
 //   backgroundColor: string;
 //   width: String;
 //   disabled: boolean
