@@ -132,7 +132,8 @@ export const Signup = () => {
                         })
                       }
                     />
-                    {fileInfo ? fileInfo.name : "파일 첨부하기 +"}
+                    asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+                    {/* {fileInfo ? fileInfo.name : "파일 첨부하기 +"} */}
                   </Label>
                   <FileCheckText isAttach={fileInfo}>{fileInfo ? "첨부" : "미첨부"}</FileCheckText>
                 </FlexBox>
@@ -274,9 +275,9 @@ const FileInput = styled.input`
 const Label = styled.label`
   width: 100%;
   height: 56px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  text-align: center;
+  line-height: 56px;
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.color.etc[5]};
   background: ${({ theme }) => theme.color.white};
@@ -285,10 +286,16 @@ const Label = styled.label`
   font-weight: 600;
   letter-spacing: -0.4px;
   cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  padding: 0 16px;
 
   ${({ theme }) => theme.breakpoints.down("TABLET")} {
     font-size: 16px;
     height: 50px;
+    line-height: 50px;
   }
 `;
 

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Input = ({ type, placeholder, width, maxLength }) => {
+export const Input = ({ type, placeholder, width }) => {
   return <Wrap type={type} placeholder={placeholder} width={width} onKeyDown={(e) => ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()} />;
 };
 
