@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import { Intro } from "../page/Intro";
-import { Signup } from "../page/Signup";
-import { Login } from "../page/Login";
+import { menu } from "../data/menu";
 
 export const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Intro />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
+      {menu.map((item) => (
+        <Route path={item.link} element={item.comp} />
+      ))}
     </Routes>
   );
 };
