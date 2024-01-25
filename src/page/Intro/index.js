@@ -1,16 +1,12 @@
 import styled from "@emotion/styled";
 import { LButton } from "../../component/LButton";
 import { theme } from "../../styles/theme";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDeviceHeight } from "../../hook/useDeviceHeight";
 
 export const Intro = () => {
   const navigate = useNavigate();
-  const [innerHeight, setInnerHeight] = useState(0);
-
-  useEffect(() => {
-    setInnerHeight(window.innerHeight);
-  }, []);
+  const { innerHeight } = useDeviceHeight();
 
   return (
     <Wrap innerHeight={innerHeight}>

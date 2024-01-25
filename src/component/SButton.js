@@ -12,7 +12,7 @@ export const SButton = ({ text, width, backgroundColor, disabled, onClick, right
   return (
     <Wrap width={width} disabled={disabled} backgroundColor={backgroundColor} onClick={onClick}>
       <span>{text}</span>
-      {rightIcon && <img src={`images/${rightIcon}.svg`} />}
+      {rightIcon && <img src={`images/${rightIcon}.svg`} alt="정렬 화살표" />}
     </Wrap>
   );
 };
@@ -24,7 +24,7 @@ const Wrap = styled.button`
   gap: 7px;
   background-color: ${({ theme, backgroundColor }) => (backgroundColor ? backgroundColor : theme.color.primary)};
   color: ${({ disabled, theme }) => (disabled ? theme.color.etc[2] : theme.color.white)};
-  min-width: ${({ width }) => (width ? `${width}px` : "100%")};
+  ${({ width }) => (width ? `min-width: ${width}px` : "width: 100%")};
   font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.48px;
