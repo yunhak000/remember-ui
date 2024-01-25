@@ -27,8 +27,19 @@ export const Intro = () => {
       </Contents>
       <ButtonLinkWrap className="container">
         <ButtonWrap>
-          <LButton text="기관 로그인하기" onClick={() => {}} />
-          <LButton text="개인 로그인하기" backgroundColor={theme.color.secondary} onClick={() => {}} />
+          <LButton
+            text="기관 로그인하기"
+            onClick={() => {
+              navigate("/login");
+            }}
+          />
+          <LButton
+            text="개인 로그인하기"
+            backgroundColor={theme.color.secondary}
+            onClick={() => {
+              navigate("/login");
+            }}
+          />
         </ButtonWrap>
         <OutLink>
           <span>현재 아이디가 없다면?</span>

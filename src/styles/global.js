@@ -157,10 +157,10 @@ const global = css`
   }
 
   .container {
-    width: 800px;
+    width: 768px;
     margin: 0 auto;
 
-    @media (max-width: 800px) {
+    @media (max-width: 768px) {
       width: 100%;
     }
   }

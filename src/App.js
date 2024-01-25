@@ -10,9 +10,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       {pathname !== "/" && <Header title="기억하뇌" isBackgroundColorWhite />}
-      <div>
-        <Router />
-      </div>
+      <Router />
     </ThemeProvider>
   );
 }

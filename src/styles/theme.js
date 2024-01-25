@@ -15,7 +15,7 @@ const color = {
 
 const breakpoint = {
   DESKTOP: "1200px",
-  TABLET: "800px",
+  TABLET: "768px",
   MOBILE: "360px",
 };
 

@@ -10,7 +10,7 @@ export const Header = ({ title, isBackgroundColorWhite }) => {
   const navigate = useNavigate();
 
   return (
-    <Wrap isBackgroundColorWhite={isBackgroundColorWhite}>
+    <Wrap isBackgroundColorWhite={isBackgroundColorWhite} id="header">
       <img
         src={`/images/arrow_l_${isBackgroundColorWhite ? "b" : "w"}.svg`}
         alt="네이게이션 화살표"

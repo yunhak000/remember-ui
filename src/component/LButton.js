@@ -16,6 +16,7 @@ export const LButton = ({ text, backgroundColor, disabled, onClick }) => {
 };
 
 const Wrap = styled.button`
+  width: 100%;
   background-color: ${({ theme, backgroundColor }) => (backgroundColor ? backgroundColor : theme.color.primary)};
   color: ${({ disabled, theme }) => (disabled ? theme.color.etc[2] : theme.color.white)};
   font-size: 28px;
