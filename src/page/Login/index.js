@@ -34,8 +34,8 @@ export const Login = () => {
             <CheckBox text="간편 로그인" />
           </div>
           <LButton text="로그인 하기" />
-          <div className="find-id-pw" onClick={openModal}>
-            아이디/비밀번호 찾기
+          <div className="find-id-pw">
+            <span onClick={openModal}>아이디/비밀번호 찾기</span>
           </div>
         </LoginForm>
       </Wrap>
