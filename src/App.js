@@ -3,7 +3,7 @@ import { Router } from "./component/Router";
 import { theme } from "./styles/theme";
 import { Header } from "./component/Header";
 import { useLocation } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { SidebarContext } from "./context/SidebarContextProvider";
 import { Sidebar } from "./component/Sidebar";
 

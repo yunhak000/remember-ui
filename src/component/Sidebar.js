@@ -8,6 +8,10 @@ import { SidebarContext } from "../context/SidebarContextProvider";
 
 const sidebarData = [
   { img: "people", alt: "여러사람", title: "사용자관리", subMenu: [{ title: "직원" }, { title: "이용자" }, { title: "내 정보" }] },
+  { img: "people", alt: "여러사람", title: "사용자관리", subMenu: [{ title: "직원" }, { title: "이용자" }, { title: "내 정보" }] },
+  { img: "people", alt: "여러사람", title: "사용자관리", subMenu: [{ title: "직원" }, { title: "이용자" }, { title: "내 정보" }] },
+  { img: "people", alt: "여러사람", title: "사용자관리", subMenu: [{ title: "직원" }, { title: "이용자" }, { title: "내 정보" }] },
+  { img: "people", alt: "여러사람", title: "사용자관리", subMenu: [{ title: "직원" }, { title: "이용자" }, { title: "내 정보" }] },
   { img: "graph", alt: "통계", title: "통계", subMenu: [{ title: "이용 현황" }, { title: "이용자 통계" }] },
   { img: "settings", alt: "설정", title: "설정", subMenu: [{ title: "이용약관" }] },
 ];

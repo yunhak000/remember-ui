@@ -28,7 +28,10 @@ export const Header = ({ pathname }) => {
         }}
       />
       <h2>{headerProps.title}</h2>
-      <span></span>
+      <div>
+        <img src={`/images/profile_grey.svg`} alt="프로필 이미지" />
+        홍길동님
+      </div>
     </Wrap>
   );
 };
@@ -53,6 +56,14 @@ const Wrap = styled.header`
     transform: translate(-50%, -50%);
   }
 
+  > div {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
   ${({ theme }) => theme.breakpoints.down("TABLET")} {
     padding: 0 16px;
 
@@ -61,7 +72,15 @@ const Wrap = styled.header`
     }
 
     h2 {
-      font-size: 25px;
+      font-size: 22px;
+    }
+
+    > div {
+      img {
+        width: 20px;
+      }
+      gap: 8px;
+      font-size: 13px;
     }
   }
 `;
