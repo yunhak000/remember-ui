@@ -1,30 +1,39 @@
 import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { menu } from "../data/menu";
 
 // type TProps = {
 //   title: string,
 //   isBackgroundColorWhite: boolean,
 // };
 
-export const Header = ({ title, isBackgroundColorWhite }) => {
+export const Header = ({ pathname }) => {
   const navigate = useNavigate();
+  const [headerProps, setHeaderProps] = useState({ title: "", isBackgroundColorWhite: true });
+
+  useEffect(() => {
+    const menuItem = menu.find((item) => item.link === pathname);
+
+    setHeaderProps({ title: menuItem.title, isBackgroundColorWhite: menuItem.isBackgroundColorWhite ? true : false });
+  }, [pathname]);
 
   return (
-    <Wrap isBackgroundColorWhite={isBackgroundColorWhite} id="header">
+    <Wrap isBackgroundColorWhite={headerProps.isBackgroundColorWhite} id="header">
       <img
-        src={`/images/arrow_l_${isBackgroundColorWhite ? "b" : "w"}.svg`}
+        src={`/images/arrow_l_${headerProps.isBackgroundColorWhite ? "b" : "w"}.svg`}
         alt="네이게이션 화살표"
         onClick={() => {
           navigate(-1);
         }}
       />
-      <h2>{title}</h2>
+      <h2>{headerProps.title}</h2>
       <span></span>
     </Wrap>
   );
 };
 
-const Wrap = styled.div`
+const Wrap = styled.header`
   position: relative;
   padding: 0 56px;
   height: 72px;

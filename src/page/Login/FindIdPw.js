@@ -4,57 +4,62 @@ import { SButton } from "../../component/SButton";
 import { theme } from "../../styles/theme";
 import { useState } from "react";
 import { RadioButton } from "../../component/RadioButton";
+import { useModal } from "../../hook/useModal";
+import { ResultIdPw } from "./ResultIdPw";
 
 export const FindIdPw = (props) => {
+  const { Modal, isOpen, openModal } = useModal();
   const [tabIdx, setTabIdx] = useState(0);
 
   return (
-    <Wrap>
-      <Tab>
-        {["직원", "이용자"].map((item, i) => (
-          <div className={tabIdx === i ? "on" : ""} onClick={() => setTabIdx(i)}>
-            {item}
-          </div>
-        ))}
-      </Tab>
-      <Bottom>
-        <Content>
-          <h3>ID/PW 찾기</h3>
-          <div>
-            <div>
-              <span>사업자번호</span>
-              <Input placeholder="000-00-00000" />
+    <>
+      <Wrap>
+        <Tab>
+          {["직원", "이용자"].map((item, i) => (
+            <div className={tabIdx === i ? "on" : ""} onClick={() => setTabIdx(i)}>
+              {item}
             </div>
+          ))}
+        </Tab>
+        <Bottom>
+          <Content>
+            <h3>ID/PW 찾기</h3>
             <div>
-              <span>이름</span>
-              <Input placeholder="이름을 입력해주세요" />
+              <div>
+                <span>사업자번호</span>
+                <Input placeholder="000-00-00000" />
+              </div>
+              <div>
+                <span>이름</span>
+                <Input placeholder="이름을 입력해주세요" />
+              </div>
+              <div>
+                <span>생년월일</span>
+                <Input placeholder="YYMMDD" />
+              </div>
             </div>
-            <div>
-              <span>생년월일</span>
-              <Input placeholder="YYMMDD" />
-            </div>
-          </div>
-        </Content>
-        <RadioButtonWrap>
-          <RadioButton text="아이디 찾기" name="group" />
-          <RadioButton text="비밀번호 찾기" name="group" />
-        </RadioButtonWrap>
-        <ButtonWrap>
-          <SButton text="확인" />
-          <SButton text="취소" backgroundColor={theme.color.secondary} onClick={props.onCloseButtonClick} />
-        </ButtonWrap>
-      </Bottom>
-    </Wrap>
+          </Content>
+          <RadioButtonWrap>
+            <RadioButton text="아이디 찾기" name="group" />
+            <RadioButton text="비밀번호 찾기" name="group" />
+          </RadioButtonWrap>
+          <ButtonWrap>
+            <SButton text="확인" onClick={openModal} />
+            <SButton text="취소" backgroundColor={theme.color.secondary} onClick={props.onCloseButtonClick} />
+          </ButtonWrap>
+        </Bottom>
+      </Wrap>
+      <Modal isOpen={isOpen} onClose={props.onCloseButtonClick}>
+        <ResultIdPw />
+      </Modal>
+    </>
   );
 };
 
 const Wrap = styled.div`
-  width: 568px;
-  background-color: ${({ theme }) => theme.color.white};
+  width: 100%;
 
-  ${({ theme }) => theme.breakpoints.down("MODAL")} {
-    width: 100%;
-  }
+  background-color: ${({ theme }) => theme.color.white};
 `;
 
 const Tab = styled.div`

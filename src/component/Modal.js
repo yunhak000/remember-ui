@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import ModalPortal from "./ModalPortal";
 import { useDeviceHeight } from "../hook/useDeviceHeight";
-import React, { Children } from "react";
+import React from "react";
 
 export const Modal = ({ isOpen, onClose, children }) => {
   const { innerHeight } = useDeviceHeight(true);
@@ -39,6 +39,7 @@ const ModalInner = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background: #fff;
+  width: 568px;
 
   ${({ theme }) => theme.breakpoints.down("MODAL")} {
     width: 90%;

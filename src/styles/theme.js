@@ -10,6 +10,7 @@ const color = {
     4: "#f6f6f6",
     5: "#bbb",
     6: "#F4F4F4",
+    7: "#efefef",
   },
 };
 
