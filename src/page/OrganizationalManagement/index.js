@@ -2,12 +2,17 @@ import styled from "@emotion/styled";
 import { StatusCard } from "./StatusCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faChevronRight, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../../context/SidebarContextProvider";
 
 export const OrganizationalManagement = () => {
   const [tabIdx, setTabIdx] = useState(0);
   const { setIsShowSidebar } = useContext(SidebarContext);
+  const [footerHeight, setFooterHeight] = useState(0);
+
+  useEffect(() => {
+    setFooterHeight(document.getElementById("organizational-footer").offsetHeight);
+  }, []);
 
   return (
     <div>
@@ -17,7 +22,7 @@ export const OrganizationalManagement = () => {
           상록 복지관
         </div>
       </OrganizationName>
-      <Contents>
+      <Contents footerHeight={footerHeight}>
         <div className="container">
           <TopText>
             <p>서류를 미제출 하셨습니다.</p>
@@ -76,7 +81,7 @@ export const OrganizationalManagement = () => {
           </VisitorStatisticsWrap>
         </div>
       </Contents>
-      <OrganizationFooter>
+      <OrganizationFooter id="organizational-footer">
         <div>
           {[
             { title: "관리", nonSelectImgSrc: "person_non_select", selectImgSrc: "person_select", alt: "사람 아이콘" },
@@ -143,6 +148,7 @@ const OrganizationName = styled.div`
 const Contents = styled.div`
   padding: 40px 0;
   background-color: ${({ theme }) => theme.color.etc[6]};
+  margin-bottom: ${({ footerHeight }) => `${footerHeight}px`};
 
   ${({ theme }) => theme.breakpoints.down("TABLET")} {
     padding: 34px 16px 40px;
@@ -346,6 +352,10 @@ const Icon = styled.span`
 `;
 
 const OrganizationFooter = styled.div`
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
   background-color: ${({ theme }) => theme.color.white};
   display: flex;
   justify-content: center;

@@ -37,7 +37,11 @@ export const Header = ({ pathname }) => {
 };
 
 const Wrap = styled.header`
-  position: relative;
+  position: fixed;
+  z-index: 999999;
+  width: 100%;
+  top: 0;
+  left: 0;
   padding: 0 56px;
   height: 72px;
   background: ${({ theme, isBackgroundColorWhite }) => (isBackgroundColorWhite ? theme.color.white : theme.color.primary)};
