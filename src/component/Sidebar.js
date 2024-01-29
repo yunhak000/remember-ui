@@ -5,6 +5,8 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { SidebarLi } from "./SidebarLi";
 import { useContext } from "react";
 import { SidebarContext } from "../context/SidebarContextProvider";
+import { LButton } from "./LButton";
+import { SButton } from "./SButton";
 
 const sidebarData = [
   { img: "people", alt: "여러사람", title: "사용자관리", subMenu: [{ title: "직원" }, { title: "이용자" }, { title: "내 정보" }] },
@@ -19,21 +21,26 @@ export const Sidebar = () => {
   return (
     <Wrap innerHeight={innerHeight}>
       <SidebarWrap innerHeight={innerHeight}>
-        <Profile>
-          <div>
-            <img src="images/profile_primary.svg" alt="프로필" />
+        <div>
+          <Profile>
             <div>
-              <span className="name">홍길동님</span>
-              <span className="company">상록 복지관</span>
+              <img src="images/profile_primary.svg" alt="프로필" />
+              <div>
+                <span className="name">홍길동님</span>
+                <span className="company">상록 복지관</span>
+              </div>
             </div>
-          </div>
-          <FontAwesomeIcon icon={faXmark} onClick={() => setIsShowSidebar(false)} />
-        </Profile>
-        <Ul>
-          {sidebarData.map((data, i) => (
-            <SidebarLi key={i} data={data} />
-          ))}
-        </Ul>
+            <FontAwesomeIcon icon={faXmark} onClick={() => setIsShowSidebar(false)} />
+          </Profile>
+          <Ul>
+            {sidebarData.map((data, i) => (
+              <SidebarLi key={i} data={data} />
+            ))}
+          </Ul>
+        </div>
+        <ButtonWrap>
+          <SButton text="로그아웃" width={226} />
+        </ButtonWrap>
       </SidebarWrap>
     </Wrap>
   );
@@ -54,6 +61,9 @@ const Wrap = styled.div`
 `;
 
 const SidebarWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 420px;
   height: ${({ innerHeight }) => `${innerHeight}px`};
   background-color: ${({ theme }) => theme.color.white};
@@ -61,6 +71,7 @@ const SidebarWrap = styled.div`
   top: 0;
   right: 0;
   overflow-y: scroll;
+  gap: 30px;
 
   ${({ theme }) => theme.breakpoints.down("TABLET")} {
     width: 250px;
@@ -131,4 +142,15 @@ const Profile = styled.div`
 const Ul = styled.ul`
   width: 100%;
   cursor: pointer;
+`;
+
+const ButtonWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 48px;
+
+  ${({ theme }) => theme.breakpoints.down("TABLET")} {
+    padding-bottom: 20px;
+  }
 `;
