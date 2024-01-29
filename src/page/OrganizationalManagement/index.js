@@ -145,7 +145,7 @@ const Contents = styled.div`
   background-color: ${({ theme }) => theme.color.etc[6]};
   margin-bottom: 112px;
 
-  ${({ theme }) => theme.breakpoints.down("TABLET")} {
+  @media (max-width: 801px) {
     padding: 34px 16px 40px;
     margin-bottom: 106px;
   }
