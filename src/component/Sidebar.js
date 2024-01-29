@@ -41,6 +41,7 @@ export const Sidebar = () => {
 
 const Wrap = styled.div`
   position: fixed;
+  z-index: 3;
   width: 100vw;
   height: ${({ innerHeight }) => `${innerHeight}px`};
   background: rgba(0, 0, 0, 0.5);

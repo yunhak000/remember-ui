@@ -38,7 +38,7 @@ export const Header = ({ pathname }) => {
 
 const Wrap = styled.header`
   position: fixed;
-  z-index: 999999;
+  z-index: 2;
   width: 100%;
   top: 0;
   left: 0;

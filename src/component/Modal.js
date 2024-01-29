@@ -26,6 +26,7 @@ export const Modal = ({ isOpen, onClose, children }) => {
 
 const ModalWrapper = styled.div`
   position: fixed;
+  z-index: 4;
   top: 0;
   left: 0;
   width: 100vw;
