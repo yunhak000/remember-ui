@@ -2,12 +2,12 @@ import styled from "@emotion/styled";
 import { StatusCard } from "./StatusCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faChevronRight, faStar, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { SidebarContext } from "../../context/SidebarContextProvider";
 
 export const OrganizationalManagement = () => {
   const [tabIdx, setTabIdx] = useState(0);
-  const { isShowSidebar, setIsShowSidebar } = useContext(SidebarContext);
+  const { setIsShowSidebar } = useContext(SidebarContext);
 
   return (
     <div>
@@ -179,7 +179,7 @@ const VisitorStatisticsWrap = styled.div`
   display: flex;
   gap: 20px;
 
-  ${({ theme }) => theme.breakpoints.down("TABLET")} {
+  @media (max-width: 680px) {
     flex-direction: column;
   }
 
@@ -236,6 +236,16 @@ const Visitor = styled.div`
   display: flex;
   justify-content: space-between;
 
+  @media (max-width: 680px) {
+    width: 210px;
+    margin: 0 auto;
+
+    @media (max-width: 380px) {
+      width: 100%;
+      gap: 10px;
+    }
+  }
+
   > div {
     display: flex;
     flex-direction: column;
@@ -289,6 +299,15 @@ const Statistics = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media (max-width: 680px) {
+    width: 308px;
+    margin: 0 auto;
+
+    @media (max-width: 450px) {
+      width: 100%;
+    }
+  }
 
   > div {
     border-radius: 10px;

@@ -58,7 +58,7 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: ${({ innerHeight }) => `${innerHeight}px`};
+  min-height: ${({ innerHeight }) => `${innerHeight}px`};
   justify-content: space-between;
 
   ${({ theme }) => theme.breakpoints.down("TABLET")} {
@@ -138,9 +138,11 @@ const ButtonLinkWrap = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 80px;
+  padding: 0 40px;
 
   ${({ theme }) => theme.breakpoints.down("TABLET")} {
     margin-bottom: 30px;
+    padding: 0;
   }
 `;
 

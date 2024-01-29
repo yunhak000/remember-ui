@@ -35,7 +35,7 @@ const Wrap = styled.div`
   height: 194px;
   overflow: hidden;
 
-  ${({ theme }) => theme.breakpoints.down("TABLET")} {
+  @media (max-width: 500px) {
     padding: 16px;
     height: 130px;
   }
@@ -45,7 +45,11 @@ const Wrap = styled.div`
     bottom: -16px;
     left: 209px;
 
-    ${({ theme }) => theme.breakpoints.down("TABLET")} {
+    @media (max-width: 660px) {
+      left: 140px;
+    }
+
+    @media (max-width: 580px) {
       width: 100px;
       left: 60px;
       bottom: -20px;
@@ -62,8 +66,9 @@ const Wrap = styled.div`
     font-size: 24px;
     font-weight: 600;
     letter-spacing: -0.48px;
+    white-space: nowrap;
 
-    ${({ theme }) => theme.breakpoints.down("TABLET")} {
+    @media (max-width: 500px) {
       font-size: 20px;
     }
   }
@@ -78,7 +83,7 @@ const Wrap = styled.div`
     justify-content: space-between;
     align-items: flex-end;
 
-    ${({ theme }) => theme.breakpoints.down("TABLET")} {
+    @media (max-width: 500px) {
       font-size: 24px;
     }
 

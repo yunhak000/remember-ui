@@ -160,7 +160,7 @@ const global = css`
     width: 768px;
     margin: 0 auto;
 
-    @media (max-width: 768px) {
+    @media (max-width: 800px) {
       width: 100%;
     }
   }
