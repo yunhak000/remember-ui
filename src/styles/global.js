@@ -119,6 +119,7 @@ const global = css`
 
   body {
     line-height: 1;
+    background-color: #fff;
   }
 
   ol,
