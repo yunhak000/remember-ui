@@ -8,11 +8,6 @@ import { SidebarContext } from "../../context/SidebarContextProvider";
 export const OrganizationalManagement = () => {
   const [tabIdx, setTabIdx] = useState(0);
   const { setIsShowSidebar } = useContext(SidebarContext);
-  const [footerHeight, setFooterHeight] = useState(0);
-
-  useEffect(() => {
-    setFooterHeight(document.getElementById("organizational-footer").offsetHeight);
-  }, []);
 
   return (
     <div>
@@ -22,7 +17,7 @@ export const OrganizationalManagement = () => {
           상록 복지관
         </div>
       </OrganizationName>
-      <Contents footerHeight={footerHeight}>
+      <Contents>
         <div className="container">
           <TopText>
             <p>서류를 미제출 하셨습니다.</p>
@@ -148,10 +143,11 @@ const OrganizationName = styled.div`
 const Contents = styled.div`
   padding: 40px 0;
   background-color: ${({ theme }) => theme.color.etc[6]};
-  margin-bottom: ${({ footerHeight }) => `${footerHeight}px`};
+  margin-bottom: 112px;
 
   ${({ theme }) => theme.breakpoints.down("TABLET")} {
     padding: 34px 16px 40px;
+    margin-bottom: 106px;
   }
 `;
 
